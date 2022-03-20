@@ -1,7 +1,5 @@
 package Expressions;
 
-import java.util.Arrays;
-
 public class Exp {
 	public char[] expr;
 	public double result;
