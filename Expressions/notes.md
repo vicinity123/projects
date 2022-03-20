@@ -1,39 +1,27 @@
 # Steps to evaluate an expression
 
-## Parsing
 1. Remove any space - *if there are any*
-1. Traverse the expression string to look for the following in order
+1. Traverse the expression string to look for the following in order - *P.E.M.D.A.S*
     - Parentheses
-        - Any operations inside parentheses should take precedence
-        - Calls the parsing function continuously until the base of the nested parentheses is reached.
+        > Any operations inside parentheses should take precedence
+        - Call the parsing function continuously until the base of the nested parentheses is reached.
         ```java
         // For this epression string:
-        ((((a + b))))
+        c(a + b)
         
         parser() {
-            parser() {
-                parser() {
-                    parser() {
-                        // Do next step here.
-                        a + b
-                    }
-                }
+            c * parser() {
+                // Do next step here.
+                return calculate(a + b)
             }
         }
         ```
     - Operators
         - Store a map of the indices to operators
+        - Start with the `/ * ^` then `+ -`
 1.  
 
-## Calculating
-
-
-
-
-
-
-
-### List of the operators
+## List of the operators
 | Operator | ASCII Code |
 |:--------:|:----------:|
 | + | 43 |
@@ -43,8 +31,8 @@
 | % | 37 |
 | ^ | 94 |
 
-These commands will be added in the future
 
+Soon to add the following functions
 ```
 sqrt()
 log()
