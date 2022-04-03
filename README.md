@@ -1,4 +1,7 @@
-# java-projects
+# Personal Projects
 
-## Expressions
-Evaluates the expression given as a string.
+## Java
+- Expressions Evaluation - working progress...
+
+## C
+- Hangman - working progress...
