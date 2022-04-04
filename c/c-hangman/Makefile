@@ -15,5 +15,5 @@ util.o: util.c
 	$(CC) -c util.c
 
 clean:
-	rm -f *.o hangman util
+	rm -f *.o *.out hangman util
 
