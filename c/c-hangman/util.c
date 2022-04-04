@@ -1,17 +1,18 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include "util.h"
 
-char getChar(char *prompt)
+char getInput(char *prompt)
 {
   char userGuess = '\0';
   while (1)
   {
     printf("%s", prompt);
     scanf(" %c", &userGuess);
-    if ((userGuess >= 97 && userGuess <= 122) || userGuess == 33)
+    if ((userGuess >= 'a' && userGuess <= 'z') || userGuess == '!')
     {
       break;
     }
@@ -30,30 +31,18 @@ void getRandomWord(FILE *fptr, char *word)
   int i = 0;
   while (i <= randNum)
   {
-    if (i == randNum)
-    {
-      fgets(tmp, 24, fptr);
-    }
+    fgets(tmp, 24, fptr);
     i++;
   }
-  printf("Number: %i\tWord: %s", randNum, tmp);
-  strcpy(word, tmp);
-}
-
-int getPosition(char *str, char c)
-{
-  // Returns -1 if character doesn't exist in the string
-  for (int i = 0; i < strlen(str); i++)
+  if (strlen(tmp) <= MAX_WORDLEN)
   {
-    if (c == str[i])
-    {
-      return i;
-    }
+    strcpy(word, tmp);
+    return;
   }
-  return -1;
+  getRandomWord(fptr, word);
 }
 
-void getState(char *str, char ch, int posOfC, char *state)
+void updateState(char *str, char ch, int posOfC, char *state)
 {
   for (int i = 0, n = strlen(str); i < n; i++)
   {
