@@ -42,14 +42,20 @@ void getRandomWord(FILE *fptr, char *word)
   getRandomWord(fptr, word);
 }
 
-void updateState(char *str, char ch, int posOfC, char *state)
+int updateState(char *str, char ch, char *current)
 {
-  for (int i = 0, n = strlen(str); i < n; i++)
+  int foundLetter = 0;
+  int n = strlen(str) - 2;
+  for (int i = 0; i < n; i++)
   {
-    if (i == posOfC && str[posOfC] == ch)
+    if (ch - 32 == str[i])
     {
-      state[i] = ch;
+      current[i] = ch - 32;
+      foundLetter = 1;
     }
-    state[i] = '-';
   }
+  printf("%s\n", current);
+  // Returns 1 if correct letter is found
+  // Otherwise returns 0
+  return foundLetter;
 }

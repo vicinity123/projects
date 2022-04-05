@@ -9,6 +9,6 @@
 
 char getInput(char *prompt);
 void getRandomWord(FILE *fptr, char *word);
-void updateState(char *str, char ch, int posOfC, char *current);
+int updateState(char *str, char ch, char *current);
 
 #endif
