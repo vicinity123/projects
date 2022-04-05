@@ -1,0 +1,5 @@
+# Ideas:
+- Finding the number of divisors
+- Determine if a number is prime or composite
+- Simplifying a square root
+  - sqrt(20) => 2sqrt(5)
